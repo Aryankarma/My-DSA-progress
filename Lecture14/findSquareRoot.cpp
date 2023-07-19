@@ -17,34 +17,63 @@ using namespace std;
 
 // Note - this is a self made begin-to-code solution, it does not show the exact square root value but working
 
-int binary(vector<int> vect, int size,int n){
-    int start=0, end=size, mid=start+(end-start)/2, num=n;
+// int binary(vector<int> vect, int size,int n){
+//     int start=0, end=size, mid=start+(end-start)/2, num=n;
 
-    while(start<end){
-        if(((vect[mid]*vect[mid]) < num) && ((vect[mid+1]*vect[mid+1]) > num)){
-            return vect[mid];
-            break;    
-        }else if((vect[mid]*vect[mid]) > num){
-            end = mid;
-        }else if((vect[mid]*vect[mid]) < num){
+//     while(start<end){
+//         if(((vect[mid]*vect[mid]) < num) && ((vect[mid+1]*vect[mid+1]) > num)){
+//             return vect[mid];
+//             break;    
+//         }else if((vect[mid]*vect[mid]) > num){
+//             end = mid;
+//         }else if((vect[mid]*vect[mid]) < num){
+//             start = mid+1;
+//         }else if((vect[mid]*vect[mid]) == num){
+//             return vect[mid];
+//             break;
+//         }
+//         mid = start + (end-start)/2;
+//     }
+//     return 0;
+// };
+
+
+// int main(){
+//     int n = 5;
+//     vector<int> vect;
+
+//     for(int i=0;i<=n;i++){
+//         vect.push_back(i);
+//     }
+//     int ans = binary(vect, vect.size(), n);
+//     cout << ans;
+// }
+
+
+
+// new code (better code)
+
+
+int binary(int n){
+    int start = 0, end=n, mid=start+(end-start)/2, ans;
+    
+    while(start<=end){
+        if((mid*mid) > n){
+            end = mid-1;
+        }else if((mid*mid) < n){
             start = mid+1;
-        }else if((vect[mid]*vect[mid]) == num){
-            return vect[mid];
+            ans = mid;
+        }else if((mid*mid) == n){
+            ans = mid;
             break;
         }
         mid = start + (end-start)/2;
     }
-    return 0;
+    return ans;
 };
 
-
 int main(){
-    int n = 26;
-    vector<int> vect;
-
-    for(int i=0;i<=n/2;i++){
-        vect.push_back(i);
-    }
-    int ans = binary(vect, vect.size(), n);
+    int n=144;
+    int ans = binary(n);
     cout << ans;
 }
