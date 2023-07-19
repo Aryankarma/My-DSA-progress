@@ -44,4 +44,3 @@ We are getting the minimum in the last case.
 Hence answer is ‘113’.
 
 */
-
