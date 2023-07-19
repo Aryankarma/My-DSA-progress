@@ -52,11 +52,9 @@ using namespace std;
 
 
 // new code (better code)
-
-
 int binary(int n){
     int start = 0, end=n, mid=start+(end-start)/2, ans;
-    
+
     while(start<=end){
         if((mid*mid) > n){
             end = mid-1;
@@ -76,4 +74,32 @@ int main(){
     int n=144;
     int ans = binary(n);
     cout << ans;
+
 }
+
+
+// code for more precision in our answer (improper)
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     double i = 0.1, store, value = 4, count = 0 ,n=17;
+    
+//     while(count < 10) {
+//     // while(value * value != (n-0.01)) {
+//         if (value * value < n) {
+//             store = value;
+//             count++;
+//             if( ((value+i)*(value+i)) < n){
+//                 value = value +  i;
+//             }else
+//             // (value*value > 5)
+//             {
+//               i = i/10;  
+//               value = value + i;
+//             }
+//         }
+//     }
+//     cout << store << " ";
+//     return 0;
+// }
