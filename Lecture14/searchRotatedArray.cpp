@@ -75,3 +75,57 @@ int search(vector<int>& arr, int n, int k){
         return binarySearch(arr, 0, pivot-1, k);
     }
 }
+
+
+
+
+
+// leetcode updated code
+
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int n= nums.size();
+        int pivot = findpivot(nums, n);
+        // if(nums[pivot] <= target <= nums[n-1]){
+        if(target >= nums[pivot] && target <= nums[n-1]){
+            return binarySearch(nums, pivot, n-1, target);
+        }else{
+            return binarySearch(nums, 0, pivot-1, target);
+        }
+    }
+
+    int binarySearch(vector<int>& arr, int start, int end, int k){
+    int s = start, e = end;
+    int mid = s+(e-s)/2;
+    while(s<=e){
+        if(arr[mid] == k){
+            return mid;
+            break;
+        }
+        if(arr[mid] < k){
+            s = mid + 1;
+        }else{
+            e = mid-1;
+        }
+        mid = s+(e-s)/2;
+    }
+        return -1;
+}
+
+int findpivot(vector<int>& arr, int n){
+    int start=0, end=n-1;
+    int mid = start + (end-start)/2;
+    while(start<end){
+        if(arr[mid] >= arr[0]){
+            start = mid+1;
+        }else{
+            end = mid;
+        }
+        mid = start + (end-start)/2;
+    }
+    return start;
+}
+
+};
