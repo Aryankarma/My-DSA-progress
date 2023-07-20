@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 #include<stdio.h>
 using namespace std;
@@ -52,8 +53,10 @@ using namespace std;
 
 
 // new code (better code)
-int binary(int n){
-    int start = 0, end=n, mid=start+(end-start)/2, ans;
+
+long long int binary(int n){
+    int start = 0, end=n;
+    long long int mid=start+(end-start)/2, ans=-1;
 
     while(start<=end){
         if((mid*mid) > n){
@@ -74,7 +77,6 @@ int main(){
     int n=144;
     int ans = binary(n);
     cout << ans;
-
 }
 
 
