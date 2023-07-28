@@ -2,6 +2,10 @@
 using namespace std;
 
 // Simple Bubble sort Program
+/*  bubble sort is the simplest sorting method, in this we use the same two pointers first one 
+    goes from 1 to size and the second one goes from 0 to size - index of first position cause 
+    the array gets sorted from the last as the inside loop make progress
+*/
 
 int main(){
     int array[15] = {564,5,1542,564,987,987,12,48,84,9,56,1,12,5,48};
