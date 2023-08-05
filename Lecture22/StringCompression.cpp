@@ -69,85 +69,85 @@ public:
 
 
 // VS code solution (working)- runtime error on leetcode
-// int main(){
-//     char chars[] = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
-//     string s;
-//     int size = sizeof(chars)/sizeof(chars[0]);
-//     int i=0, j=0;
+int main(){
+    char chars[] = {'a','b','b','b','b','b','b','b','b','b','b','b','b'};
+    string s;
+    int size = sizeof(chars)/sizeof(chars[0]);
+    int i=0, j=0;
 
-//     while(i<size){
-//         // is the size of array is 1
-//         if(size==1){
-//             s.push_back(chars[0]);
-//             break;
-//         }
-//         // when i=0 and it is single character;
-//         if(i == 0){
-//             if(chars[0] != chars[1]){
-//                 s.push_back(chars[0]);
-//                 i++;
-//                 j++;
-//             }else{
-//                 i++;
-//             }
-//         }
+    while(i<size){
+        // is the size of array is 1
+        if(size==1){
+            s.push_back(chars[0]);
+            break;
+        }
+        // when i=0 and it is single character;
+        if(i == 0){
+            if(chars[0] != chars[1]){
+                s.push_back(chars[0]);
+                i++;
+                j++;
+            }else{
+                i++;
+            }
+        }
 
-//         // if i is at the end of the array i.e. i == size;
-//         if(i == size){
-//             if(chars[i] == chars[i-1]){
-//                 int count = i-j+1;
-//                 string cnt = to_string(count);
-//                 s.push_back(chars[i]);
-//                 for(int i=0; i<cnt.length(); i++){
-//                     char c = cnt[i];
-//                     s.push_back(c);
-//                 }
-//                 break;
-//             }else{
-//                 s.push_back(chars[i]);
-//                 break;
-//             }
-//         }
+        // if i is at the end of the array i.e. i == size;
+        if(i == size){
+            if(chars[i] == chars[i-1]){
+                int count = i-j+1;
+                string cnt = to_string(count);
+                s.push_back(chars[i]);
+                for(int i=0; i<cnt.length(); i++){
+                    char c = cnt[i];
+                    s.push_back(c);
+                }
+                break;
+            }else{
+                s.push_back(chars[i]);
+                break;
+            }
+        }
         
-//         // i is at the end of a consecutive group
-//         if(chars[i] == chars[i-1] && chars[i] != chars[i+1]){
-//             int count = i-j+1;
-//             string cnt = to_string(count);
-//             s.push_back(chars[i]);
-//             for(int i=0; i<cnt.length(); i++){
-//                 char c = cnt[i];
-//                 s.push_back(c);
-//             }
-//             j=i+1;
-//             i++;
-//         }
-//         // when i is present at the one character alone
-//         else if(chars[i] != chars[i-1] && chars[i] != chars[i+1]){
-//             s.push_back(chars[i]);
-//         }
-//         // if i is in the middle of a consecutive group
-//         else if(chars[i] == chars[i+1] && chars[i] == chars[i-1]){
-//             i++;
-//         }
-//         // if i is at the start 
-//         else if(chars[i] != chars[i-1] && chars[i] == chars[i+1]){
-//             i++;
-//         }
-//     }
+        // i is at the end of a consecutive group
+        if(chars[i] == chars[i-1] && chars[i] != chars[i+1]){
+            int count = i-j+1;
+            string cnt = to_string(count);
+            s.push_back(chars[i]);
+            for(int i=0; i<cnt.length(); i++){
+                char c = cnt[i];
+                s.push_back(c);
+            }
+            j=i+1;
+            i++;
+        }
+        // when i is present at the one character alone
+        else if(chars[i] != chars[i-1] && chars[i] != chars[i+1]){
+            s.push_back(chars[i]);
+        }
+        // if i is in the middle of a consecutive group
+        else if(chars[i] == chars[i+1] && chars[i] == chars[i-1]){
+            i++;
+        }
+        // if i is at the start 
+        else if(chars[i] != chars[i-1] && chars[i] == chars[i+1]){
+            i++;
+        }
+    }
 
-//     int sizeS = s.size();
-//     for(int i=0; i<sizeS; i++){
-//         chars[i] = s[i];
-//     }
-//     for(int i=sizeS; i<size; i++){
-//         chars[i] = '\0';
-//     }
+    int sizeS = s.size();
+    for(int i=0; i<sizeS; i++){
+        chars[i] = s[i];
+    }
+    for(int i=sizeS; i<size; i++){
+        chars[i] = '\0';
+    }
 
-//     cout << "string is : " << s << endl;
+    cout << "string is : " << s << endl;
 
-//     size = sizeof(chars)/sizeof(chars[0]);
+    size = sizeof(chars)/sizeof(chars[0]);
 
-//     for(int i=0; i<size; i++){
-//         cout << chars[i] << " ";
-//     }cout << endl;
-// }
+    for(int i=0; i<size; i++){
+        cout << chars[i] << " ";
+    }cout << endl;
+}
