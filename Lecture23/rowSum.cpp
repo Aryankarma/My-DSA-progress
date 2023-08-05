@@ -17,12 +17,16 @@ int main(){
         }
     }
     // output 
-    int sum;
+    int sum, largest=0;
     for(int row=0; row<row0; row++){
         for(int col=0; col<col0; col++){
             sum = sum + arr[row][col];
         }
         cout << sum << endl;
+        if(sum > largest){
+            largest = sum;
+        }
         sum = 0;
     }   
+    cout << "The largest sum is : " << largest << endl;
 }
