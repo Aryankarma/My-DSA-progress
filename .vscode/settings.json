@@ -1,6 +1,13 @@
 {
     "files.associations": {
         "ostream": "cpp",
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "ratio": "cpp",
+        "chrono": "cpp",
+        "span": "cpp",
+        "type_traits": "cpp"
+    },
+    "cSpell.words": [
+        "updt"
+    ]
 }
