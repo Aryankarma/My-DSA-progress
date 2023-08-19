@@ -10,8 +10,17 @@ void updtPtr(int *num){
     *num = *num+1;          // updates the value from reference
 }
 
+void increment(int **ptr){
+    ++(**ptr);
+    // (**ptr)++;  // try this -> works the same
+}
+
 int getSum(int arr[], int size){    // int arr[] works same as *arr because of the reason stated below
-    cout << sizeof(arr) << endl;    // prints the size of array (prints 4/8) reason - In C++, when you pass an array to a function, you're actually passing a pointer to the first element of the array. Therefore, the sizeof(arr) in your code will return the size of a pointer, which is typically 4 bytes on a 32-bit system and 8 bytes on a 64-bit system. This is why you're getting 4 as the output.
+    cout << sizeof(arr) << endl;    
+    // prints the size of array (prints 4/8) reason - In C++, when you pass an array
+    // to a function, you're actually passing a pointer to the first element of the array. Therefore, the sizeof(arr) 
+    // in your code will return the size of a pointer, which is typically 4 bytes on a 32-bit system and 8 bytes on a 
+    // 64-bit system. This is why you're getting 4 as the output.
     int sum = 0;
     for(int i=0; i<size; i++){
         sum = sum + arr[i];
@@ -22,9 +31,9 @@ int getSum(int arr[], int size){    // int arr[] works same as *arr because of t
 int main(){
 
     int i=1;
-    int *ptr = &i;            // declaring and initializing a pointer variable that is pointing towards the address of i
-    cout << ptr << endl;      // prints the address of i -> (0x33f8e8)
-    cout << *ptr << endl;     // prints the value at of the address stored in this pointer variable -> (i)
+    int *ptr = &i;         // declaring and initializing a pointer variable that is pointing towards the address of i
+    cout << ptr << endl;   // prints the address of i -> (0x33f8e8)
+    cout << *ptr << endl;  // prints the value at of the address stored in this pointer variable -> (i)
     int **D = &ptr;        // declaring and initializing a pointer variable that is pointing to the address of another pointer variable hence **(two stars) -> (0x33f8e4)
     cout << D << endl;     // prints the address of that another pointer variable that we stored while declaring -> (0x33f8e4)
     cout << *D << endl;    // prints the value of the memory address stored in this pointer variable -> (0x33f8e8)
@@ -35,16 +44,16 @@ int main(){
 
     int j=1;
     int *ptr3;
-    cout << ptr3 << endl;               // prints an unknowing address -> (0x26f950)  |  hence initializing like this is bad practice.
-    cout << *ptr3 << endl;              // prints an unknowing value -> (1130117701)  |  hence initializing like this is bad practice.
+    cout << ptr3 << endl;       // prints an unknowing address -> (0x26f950)  |  hence initializing like this is bad practice.
+    cout << *ptr3 << endl;      // prints an unknowing value -> (1130117701)  |  hence initializing like this is bad practice.
     
     cout << endl;
 
     int k=1;
-    int *ptr4=0;                        // initialize like this 
-    ptr4 = &k;                          // declare like this
-    cout << "1 : " <<  ptr4 << endl;    // prints the address stored in ptr4 -> (0)
-    cout << "2 : " << *ptr4 << endl;    // prints nothing
+    int *ptr4=0;                      // initialize like this 
+    ptr4 = &k;                        // declare like this
+    cout << "1 : " <<  ptr4 << endl;  // prints the address stored in ptr4 -> (0)
+    cout << "2 : " << *ptr4 << endl;  // prints nothing
 
     cout << endl;
 
@@ -60,23 +69,23 @@ int main(){
 
     int l=2;
     int *ptrAdd = &l;
-    cout << *ptrAdd << endl;            // prints 2
-    cout << ptrAdd << endl;             // prints the address of l
-    *ptrAdd = *ptrAdd +  1;             // increases the number, note - *ptrAdd++ or (*ptrAdd)++ doesn't work
-    cout << *ptrAdd << endl;            // prints the address of l
-    ptrAdd = ptrAdd + 1;                // increases the address, note - ptrAdd++ or (ptrAdd)++ doesn't work
-    cout << ptrAdd << endl;             // prints the increased address of l
+    cout << *ptrAdd << endl;          // prints 2
+    cout << ptrAdd << endl;           // prints the address of l
+    *ptrAdd = *ptrAdd +  1;           // increases the number, note - *ptrAdd++ or (*ptrAdd)++ doesn't work
+    cout << *ptrAdd << endl;          // prints the address of l
+    ptrAdd = ptrAdd + 1;              // increases the address, note - ptrAdd++ or (ptrAdd)++ doesn't work
+    cout << ptrAdd << endl;           // prints the increased address of l
 
     cout << endl;
 
 // {imp concepts} arrays with pointers (works weirdly) [part 2 - pointers] 
 
     int arr[10] = {16,21,13,14,25,63,47,85,94,10};
-    cout << arr << endl;                // prints the memory address of first location of the array we can verify with &arr[0]
-    cout << *arr << endl;               // prints the value of the 0th location of array
-    cout << *arr + 1 << endl;           // adds 1 to the value of 0th location of array
-    cout << *arr + 2 << endl;           // adds 2 to the value of 0th location of array
-    cout << *(arr+2) << endl;           // prints the value of (0+ith) memory location in the array
+    cout << arr << endl;               // prints the memory address of first location of the array we can verify with &arr[0]
+    cout << *arr << endl;              // prints the value of the 0th location of array
+    cout << *arr + 1 << endl;          // adds 1 to the value of 0th location of array
+    cout << *arr + 2 << endl;          // adds 2 to the value of 0th location of array
+    cout << *(arr+2) << endl;          // prints the value of (0+ith) memory location in the array
     
 /*  with the last practice we got, arr[2] == *(arr+2) hence, arr[i] is calculated as *(arr + i). what happens if we 
     replace [arr] and [i] let's say we want the value of arr[i], is it equivalent to i[arr]? Yes, we can conclude that 
@@ -94,7 +103,8 @@ int main(){
     int arr1[5] = {1,2,3,54,5};
     cout << &arr1 << endl;              // prints the address of first location of array
     int *p1 = &arr1[0];                 // stores the address of first element of array
-    cout << &p1 << endl;                // prints the address of pointer variable p1 that contains the memory address of a array element (&p1 would be different from &arr1)
+    cout << &p1 << endl;                // prints the address of pointer variable p1 that contains the memory address 
+                                        // of a array element (&p1 would be different from &arr1)
     
     // cout << endl;
     // cout << p1 << endl;      
@@ -116,10 +126,12 @@ int main(){
 
     char ch[6] = "Aryan";   // for storing n characters in a character array it's size has to be n+1 (extra 1 for null character)
     char *c = &ch[0];
-    cout << c << endl << endl;      // prints the whole string (prints everything unless it finds null character) cause the initial ch is an string not a character 
+    cout << c << endl << endl;      
+    // prints the whole string (prints everything unless it finds null character) cause the initial ch is an string not a character 
 
-/*  Reason - In C++, when you use the << operator with cout to print a char* pointer, it treats the pointer as a C-style null-terminated string and prints the characters from the memory 
-    location pointed to by the pointer until it encounters a null character ('\0'). This is known as "pointer dereferencing" and is a common behavior in C++ when working with strings.
+/*  Reason - In C++, when you use the << operator with cout to print a char* pointer, it treats the pointer as a C-style 
+    null-terminated string and prints the characters from the memory location pointed to by the pointer until it 
+    encounters a null character ('\0'). This is known as "pointer dereferencing" and is a common behavior in C++ when working with strings.
 */
 
     // bad practice
@@ -140,7 +152,8 @@ int main(){
 
     // working with arrays in pointers
     int arr3[5] = {1,2,3,4,5};
-    int value = getSum(arr3,5); // to understand the size difference when we pass an array to a function. we can also pass getSum(arr3 + i,5) where i represents the starting value of the passing function
+    int value = getSum(arr3,5); 
+    // to understand the size difference when we pass an array to a function. we can also pass getSum(arr3 + i,5) where i represents the starting value of the passing function
     cout << value << endl;
 
 // Double pointer in detail
@@ -165,10 +178,15 @@ int main(){
     cout << ptrT << endl;       // prints the memory address of a double pointer variable
     cout << ***ptrT << endl<< endl;    // prints the value of n, as it is a three pointer variable it jumps to the value three times... (from ptrT -> ptrD -> ptr1 -> n{5})
 
-// when we update a pointer variable in a function it updates the value but we don't get the updated value outside that function, function xyz(*ptr){ ptr = ptr+1 }   this function updates the value of ptr but it doesn't change the value by reference if we want to change the value by reference we can use the * function xyz(*ptr){ *ptr = *ptr+1 } this function updates the value by reference, outsize the function we can find the updated value. 
+// when we update a pointer variable in a function it updates the value but we don't get the updated value outside that function, 
+// function xyz(*ptr){ ptr = ptr+1 }   this function updates the value of ptr but it doesn't change the value by reference if we want 
+// to change the value by reference we can use the * function xyz(*ptr){ *ptr = *ptr+1 } this function updates the value by reference, 
+// outsize the function we can find the updated value. 
 
 /*   for MCQ's watch lecture 27 from 31:00    */
-/*
+
+// comment out all the mcq's to run the previous code
+
     int num1 = 8;
     int *ptrr = &num1;
     cout << (*ptrr)++ << endl; 
@@ -195,14 +213,40 @@ int main(){
     t = t + 2;
     cout << t << endl;
     // this should print the array from the second element
-*/
 
     int First = 110;
     int *P = &First;
     int **Q = &P;
     int Second = (**Q)++ + 9;
     cout << First << " " << Second << endl;  
-    // doubt = should print 111 and 120 but it prints 111 119  
+    // doubt = should print 111 and 120 but it prints 111 119       
+    // Reason - int Second = (**Q)++ + 9;: Here's where the behavior is a bit tricky. The expression (**Q)++ is evaluated: 
+    // *Q gives you the value of P, which is the address of First. **Q dereferences P, giving you the value stored at the 
+    // address of First, which is 110. (**Q)++ increments the value stored at the address of First, so First becomes 111, 
+    // and the expression evaluates to the previous value (110). Then, you add 9 to this value (110), resulting in Second being assigned 119.
+
+    // [post increment operator - takes the value first and then increases it so in equation - (**Q)++ + 9 it goes like (110)++ + 9 = 119; 
+    // the ++ only increments the value of first but it cannot be accessed by the equation why? cause it's post increment that takes the value first and then increases it]
+
+
+    cout << endl << endl;
+    int first4 = 100;
+    int *p4 = &first4;
+    int **q4 = &p4;
+    // cout << *q4 << endl;
+    // cout << "address of &first : " << p4 << endl;
+    // cout << "address of &p4 : " << q4 << endl;
+    int second4 = ++(**q4);    // that is a pre increment operator that first increases the value and then accesses it. hence, first(100) becomes 101 and then the expression assigns second = 101;
+    int *r1 = *q4;             // *r == &first or *p, now r == address of first
+    ++(*r1);                   // increases the value at the address of first previously was 101(increment while declaring second), then it increases as 102
+    cout << first4 << " " << second4;   
+    // this should print 102 and 101 
+
+    int num5 = 100;
+    int *ptr5 = &num5;
+    increment(&ptr5);
+    cout << num5 << endl;
+    // this should print 101 cause the function increment increases the value using double pointer reference, with pre increment operator
 
 
 }

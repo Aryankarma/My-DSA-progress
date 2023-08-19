@@ -5,7 +5,23 @@
         "ratio": "cpp",
         "chrono": "cpp",
         "span": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "iterator": "cpp",
+        "string_view": "cpp",
+        "format": "cpp",
+        "scoped_allocator": "cpp",
+        "stacktrace": "cpp",
+        "regex": "cpp",
+        "coroutine": "cpp",
+        "functional": "cpp"
     },
     "cSpell.words": [
         "updt"
