@@ -21,7 +21,9 @@
         "stacktrace": "cpp",
         "regex": "cpp",
         "coroutine": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "ranges": "cpp",
+        "numeric": "cpp"
     },
     "cSpell.words": [
         "updt"
