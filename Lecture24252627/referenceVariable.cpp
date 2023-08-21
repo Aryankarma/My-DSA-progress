@@ -52,6 +52,8 @@ int main(){
     // memory takes 8bytes (size of address) and the actual variable that is located in the heap memory takes 1byte (size of char) 
     // so the overall memory usage is 9 bytes;
     int *ptrInt = new int;
+    *ptrInt = 5;
+    cout << *ptrInt << endl;
     // takes total of 12 bytes 8 in stack and 4 in heap
 
 /*  this concept is used in dynamic memory allocation, when we create an array that takes the input as size of array in the runtime 
