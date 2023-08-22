@@ -22,7 +22,9 @@ void printCount(int n){
     }
     printCount(n-1); 
     cout << n << endl;
-    // if the recursion calling is at the end (after processing), this is tail recursion. if recursive relation is before the processing then it is called head recursion. Note - try altering the recursive relation and processing statement, the output can change.
+    // if the recursion calling is at the end (after processing), this is tail recursion. 
+    // if recursive relation is before the processing then it is called head recursion. 
+    // Note - try altering the recursive relation and processing statement, the output can change.
 }
 
 int main(){
