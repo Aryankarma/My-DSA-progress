@@ -23,7 +23,8 @@
         "coroutine": "cpp",
         "functional": "cpp",
         "ranges": "cpp",
-        "numeric": "cpp"
+        "numeric": "cpp",
+        "valarray": "cpp"
     },
     "cSpell.words": [
         "updt"
