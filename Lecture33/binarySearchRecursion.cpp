@@ -5,7 +5,7 @@ using namespace std;
 
 // my approach (direct array update approach)
 bool binarySearch(int arr[], int size, int key){
-    int mid = (0 + size)/2;
+    int mid = (0 + size-1)/2;
 
     if((size == 1 || size == 0) && (arr[0] != key)){
         return false;
@@ -14,9 +14,9 @@ bool binarySearch(int arr[], int size, int key){
     if(arr[mid] == key){
         return true;
     }else if(arr[mid] < key){
-        return binarySearch(arr+mid, size-mid, key);
-    }else if(arr[mid] > mid){
-        return binarySearch(arr, size-mid, key);
+        return binarySearch(arr+mid+1, size-mid-1, key);
+    }else if(arr[mid] > key){
+        return binarySearch(arr, mid, key);
     }else{
         return false;
     }
@@ -43,8 +43,8 @@ bool binarySearch2(int arr[], int s, int e, int key){
 int main(){
     int arr[8] = {1,12,13,14,15,16,18,19};
     // arra, size, key
-    int ans = binarySearch(arr, 8, 17);
+    int ans = binarySearch(arr, 8, 16);
     // array, start, end, key
-    int ans2 = binarySearch2(arr, 0, 5, 17);
+    int ans2 = binarySearch2(arr, 0, 5, 16);
     cout << ans << endl << ans2 << endl;
 }
