@@ -22,10 +22,10 @@ bool binarySearch(int arr[], int size, int key){
     }
 }
 
-// final approach (same binary concept, mid update)
+// final approach (same binary concept, mid update), this approach works correctly if we set an int function then print index of the mid element, but the previous incorrect for that 
 bool binarySearch2(int arr[], int s, int e, int key){
     if(s>e){
-        return false;
+        return 0;
     }
 
     int mid = s + (e-s)/2;
@@ -35,7 +35,6 @@ bool binarySearch2(int arr[], int s, int e, int key){
     }if(arr[mid] < key){
         return binarySearch2(arr, mid+1, e, key);
     }else{
-        
         return binarySearch2(arr, s, mid-1, key);
     }
 }
