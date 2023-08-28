@@ -40,6 +40,18 @@ int findPivot(int arr[], int size, int left, int right, int pivot, int leftSum, 
     }
 }
 
+int findPivot(int arr[], int size, int index, int leftSum, int rightSum) {
+    if(index == size) {
+        if(leftSum == rightSum) {
+            return(index - 1);
+        }
+        return -1;
+    }
+    
+    int pivotIndex = findPivot(arr, size, index + 1, leftSum + arr[index], rightSum);
+    return (pivotIndex != -1) ? pivotIndex : findPivot(arr, size, index + 1, leftSum, rightSum + arr[index]);
+}
+
 int main(){
     int arr[7] = {1,0,0,0,0,0,0};
     int size = 7-1;
