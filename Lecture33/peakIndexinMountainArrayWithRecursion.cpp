@@ -38,7 +38,7 @@ int returnPeak(int arr[], int start, int end){
 
     // base case
     if(start>end){
-        return 1000;
+        return -1;
     }
 
     if(arr[mid] > arr[mid+1] && arr[mid] > arr[mid-1]){

@@ -24,7 +24,9 @@
         "functional": "cpp",
         "ranges": "cpp",
         "numeric": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "barrier": "cpp",
+        "bitset": "cpp"
     },
     "cSpell.words": [
         "updt"
