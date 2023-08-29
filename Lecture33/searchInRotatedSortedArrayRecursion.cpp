@@ -31,27 +31,30 @@ int findPivot(int arr[], int start, int end){
     }
 }
 
-// int search(int arr[], int s, int e, int key){
-    
-    
-//     if(s>e){
-//         return 0;
-//     }
-
-//     int mid = s + (e-s)/2;
-
-//     if(arr[mid] == key){
-//         return true;
-//     }if(arr[mid] < key){
-//         return binarySearch2(arr, mid+1, e, key);
-//     }else{
-//         return binarySearch2(arr, s, mid-1, key);
-//     }
-// }
+int searchEle(int arr[], int s, int e, int key, int pivot){
+    if(pivot != 0){
+        if(key > arr[0] && key < arr[pivot]){
+        searchEle(arr, 0, pivot, key, 0);
+    }else{
+        searchEle(arr, pivot, e, key, 0);
+    }}
+    if(s>e){
+        return 0;
+    }
+    int mid = s + (e-s)/2;
+    if(arr[mid] == key){
+        return mid;
+    }if(arr[mid] < key){
+        return searchEle(arr, mid+1, e, key, 0);
+    }else{
+        return searchEle(arr, s, mid-1, key, 0);
+    }
+}
 
 int main(){
-    int arr[8] = {6,7,8,1,2,3,4,5}; // rotated at index 3, pivot would be - 8;
+    int arr[8] = {8,1,2,3,4,5,6,7}; // rotated at index 3, pivot would be - 8;
     int size = 8-1;
-    cout << findPivot(arr, 0, size) << endl;
-    // search(arr, 0, size, 5);
+    int pivotIndex = findPivot(arr, 0, size);
+    int key = 5;
+    cout << searchEle(arr, 0, size, 8, pivotIndex) << endl;
 }
