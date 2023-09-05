@@ -9,7 +9,8 @@ using namespace std;
     tries to find the smallest number in the array while the first pointer is fixed at the 
     first element of the array, when it finally finds the smallest number in the array except 
     first element the loop breaks and it gets swapped with the first pointer, in the next step the first 
-    pointer get's updated and the process goes on
+    pointer get's updated (hence the second pointer also gets updated according to the condition as it always 
+    1 index ahead of first index) and the process goes on
 */
 
 int main(){ 
