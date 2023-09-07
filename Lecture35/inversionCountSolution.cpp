@@ -2,7 +2,7 @@
 using namespace std;
 
 // inversion-count-in-array-using-merge-sort
-
+  
 /*  Inversion Count for an array indicates – how far (or close) the array is from being sorted. If the 
     array is already sorted, then the inversion count is 0, but if the array is sorted in reverse order, the 
     inversion count is the maximum. 
