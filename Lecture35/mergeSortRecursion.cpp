@@ -30,15 +30,12 @@ working -
 void merge(int *arr, int start, int end){
     int mid = (start+end)/2;
     
-    // calculating length of new sub arrays
     int len1 = mid-start+1;
     int len2 = end - mid;
 
-    // creating sub arrays in the heap
     int *first = new int[len1];
     int *second = new int[len2];
 
-    // copying the values
     int mainIndex = start;
     for(int i=0; i<len1; i++){
         first[i] = arr[mainIndex++];
