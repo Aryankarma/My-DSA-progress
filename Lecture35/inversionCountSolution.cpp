@@ -15,7 +15,7 @@ using namespace std;
     Explanation: Given array has six inversions: (8, 4), (4, 2), (8, 2), (8, 1), (4, 1), (2, 1).
 
     Input: arr[] = {1, 20, 6, 4, 5}
-    Output: 5
+    Output: 5 
     Explanation: Given array has five inversions: (20, 6), (20, 4), (20, 5), (6, 4), (6, 5). 
 */
 
