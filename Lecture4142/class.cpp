@@ -6,7 +6,7 @@ using namespace std;
 class YourFavoriteMovie{
     private:
     string Actor;
-    string Actress;  
+    string Actress;
  
     public:
     int rating;
@@ -29,7 +29,7 @@ class YourFavoriteMovie{
     }
 
     void setActor(string name){
-        Actor = name;
+            Actor = name;
     }
     
     void setActress(string name){
@@ -56,22 +56,43 @@ class callDefCons{
             this -> health = health; 
         }
     };
-
 */
 class callParaCons{
     public:
     int health;
+    char level;
+    char *name;
     callParaCons(){
+        name = new char[100];
         // now this is a default constructor that helps us create a new object, without this we can't use this class with 
-        // only an parameterized constructor 
+        // only an parameterized constructor
     }
-    callParaCons(int health){
-        this -> health = health; 
+    callParaCons(int health, char level, char name[6]){
+        this -> health = health;
+        this -> level = level;
+        this -> name = name;
     // here "this -> health" is pointing towards the health variable that has been initialized at line 63 (read about this 
     // keyword above initializing this object in the int main) and the "health" is the variable that we got as parameters in the constructor function.
     }
-};
 
+    // void printThis(){
+    //     cout << this->health << endl;
+    //     cout << this->level << endl;
+    // }
+    void print(){
+        cout << health << endl;
+        cout << level << endl;
+        cout << name << endl;
+    }
+
+    // defining a copy constructor
+    callParaCons(callParaCons& temp){
+        cout << "Calling copy constructor " << endl;
+        this->health = temp.health;
+        this->level = temp.level;
+        this->name = temp.name;
+    }
+};
 
 
 int main(){
@@ -106,6 +127,7 @@ int main(){
     (*Interstellar).grade = 'A';
     (*Interstellar).setActor("idk1");
     (*Interstellar).setActress("idk2");
+    // Interstellar->setActress("idk3")
 
     cout << "Rating : " << (*Interstellar).rating << endl;
     cout << "grade : " << (*Interstellar).grade << endl;
@@ -145,8 +167,11 @@ int main(){
     // object it is being used in. if we try printing the value of this keyword in an object and then the 
     // address of that particular object, both of those values are gonna be same.
 
-    callParaCons calllingWithThis(16);
-    cout << calllingWithThis.health << endl;
+    // callParaCons calllingWithThis(16, 'A');
+    // calllingWithThis.print();
+    // cout << endl;
+    // calllingWithThis.printThis();
+    // cout << endl;
 
 /*
     Here pops a question - If we can do the same thing using setters and parameterized construction when and why to use each?
@@ -166,9 +191,24 @@ int main(){
     // {COPY CONSTRUCTOR} an constructor that helps copy all values from an object of some class to another object of that particular class.  
     // syntax - just send the object that you want to copy in the parenthesis of another object; 
 
+    // temporarly calling original object & printing
+    char name[6] = "Aryan";
+    callParaCons calllingWithThis(16, 'A', name);
+    calllingWithThis.print();
+
+    // creating a copy & printing
     callParaCons copyCalllingWithThis(calllingWithThis);
-    cout << "Printing the copied value : " << copyCalllingWithThis.health << endl;
+    // cout << "Printing the copied value : " << copyCalllingWithThis.print() << endl;
+    copyCalllingWithThis.print();
 
+/*  Deep and shallow copy [our default copy constructor creates a shallow copy]   */
 
-
+    // making changes in original function & printing
+    // callParaCons calllingWithThis(15,'B');
+    // cout << "This is after modifying the original object : " << endl;
+    // calllingWithThis.print();
+    
+    // printing the copied object after modifying the original one
+    // cout << endl; 
+    // copyCalllingWithThis.print();
 }
