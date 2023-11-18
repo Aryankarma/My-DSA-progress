@@ -28,7 +28,13 @@ void constructorCalling(){
     learnConstructor aryanCallpara(10);
     cout << aryanCallpara.aryanValue << endl;
 
+    learnConstructor *aryan2 = new learnConstructor();
+
     cout << endl << endl;
+
+    // calling distructor from here (only because aryan2 was in dynamic memory) 
+    delete aryan2;
+
 }
 
 void copyConstructor(){
@@ -47,12 +53,25 @@ void copyConstructor(){
     cout << endl << endl;
 }
 
+// this is how we initialize a static variable, no need of object name cause it has no relation with object
+int learningStaticKeyword::aryansIQ = 10;
+
 int main(){
 
     // memoryAllocation();
 
     // constructorCalling();
 
-    copyConstructor();
+    // copyConstructor();
+
+    learningStaticKeyword aryan;
+    // possible way to access static variable value but not recommended
+    // cout << aryan.aryansIQ << endl;
+    
+    // recommended way for accessing static variable value
+    cout << "printing aryansIQ: " << learningStaticKeyword::aryansIQ << endl;
+
+    cout << "printing stsaticFunction : " << learningStaticKeyword::staticFunctionName() << endl;
 
 }
+

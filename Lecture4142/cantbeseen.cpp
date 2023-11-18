@@ -16,6 +16,10 @@ class learnConstructor{
         this->aryanValue = input;
     }
 
+    // THis is distructor that will be called in static constructor initialization not dynamic allocation
+    ~learnConstructor(){
+        cout << "this is being sent by distructor " << endl;
+    }
 
 };
 
@@ -42,4 +46,27 @@ class husbandMaterialguys{
         morals = input;
     }
     
+};
+
+
+class learningStaticKeyword{
+    public:
+    int nonStaticVariable;
+
+    // how to declare static variables
+    static int aryansIQ;    
+
+    // creating static functions
+    // 1. they can only access static variables/members
+    // 2. no need to create object 
+    // 3. "this" keyword doesn't work here cause this is completely related to the object it is used in while static functions are not object based  
+
+    static int staticFunctionName(){
+    // won't work
+    // cout << this.aryansIQ << endl;  // this keyword
+    // cout << nonStaticKeyword << endl; // not a static member
+
+    return aryansIQ;
+    }
+
 };
