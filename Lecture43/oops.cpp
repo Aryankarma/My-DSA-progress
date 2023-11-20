@@ -328,5 +328,24 @@ int main(){
 
 //  Encapsulation: Information hiding     ex - hiding data in a class using private/protected methods
 //  Abstraction: Implementation hiding    ex - creating a function cause it only deals with the data and hides the implementation from the user
+    
+    // class foo{
+    //   private:
+    //     int a, b;
+    //   public:
+    //     foo(int x=0, int y=0): a(x), b(y) {}
+ 
+    //     int add(){    
+    //       return a+b;   
+    //     }
+    // }  
+    
+    // Internal representation of any object of foo class is hidden outside of this class. --> Encapsulation.
+    // Any accessible member (data/function) of an object of foo is restricted and can only be accessed by that object only.
+
+    // foo foo_obj(3, 4);
+    // int sum = foo_obj.add();
+    
+    // Implementation of method add is hidden. --> Abstraction.
 
 }
