@@ -42,7 +42,7 @@ void inserthead(int data, Node* &head){
 
 void print(Node* &head){
     Node *temp = head;
-
+    
     while(temp != NULL){
         cout << temp->data << " ";
         temp = temp->next;
@@ -53,15 +53,14 @@ void print(Node* &head){
 // reversing with loop
 void reverseLinkedList(Node* &head){
 
-    Node* current = head;
-    Node* prev = NULL;
+    Node* current = head;           
+    Node* prev = NULL;          
 
     while(current != NULL){
         Node* foreward = current->next;
         current->next = prev;
         prev = current;
         current = foreward;
-
     };
     // return prev // for codestudio
     head = prev;
@@ -82,6 +81,21 @@ void reverseLinkedListbyRecursion(Node* &head, Node* &current, Node* &prev){
     reverseLinkedListbyRecursion(head, current, prev);
 }
 
+Node* reverseLinkedListbyRecursion2(Node* head){
+
+    if(head == NULL || head->next == NULL){
+        return head;
+    };
+
+    Node* cropList = reverseLinkedListbyRecursion2(head->next);
+
+    head->next->next = head;
+    head->next = NULL;
+
+    return cropList;
+
+}
+
 int main(){
 
     Node *node1 = new Node(1);
@@ -94,7 +108,7 @@ int main(){
     inserthead(100, head);
     // print(head);
     inserthead(1000, head);
-    print(head);
+    print(head);                    
 
     // approach 1 TC - O(n) SC - O(1)
     reverseLinkedList(head);
@@ -106,6 +120,9 @@ int main(){
     Node* prev = NULL;
     reverseLinkedListbyRecursion(head, current, prev);
     print(head);
-
+    
+    // approach 3 (recursive solution 2)
+    reverseLinkedListbyRecursion2(head);
+    print(head);
 
 };

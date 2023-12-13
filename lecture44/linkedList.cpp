@@ -96,7 +96,7 @@ void deleteNode(Node* &head, Node* &tail, int position){
         count++;
     }
 
-
+    
     // cout << pointer->data << endl;
     // cout << current->data << endl;
     // current = current->next;
