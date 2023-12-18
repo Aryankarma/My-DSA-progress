@@ -24,6 +24,14 @@ void insertathead(Node* &head, int data){
 
 }
 
+void insertattail(Node* &tail, int data){
+
+    Node* temp = new Node(data);
+
+    tail->next = temp; 
+    tail = temp;
+}
+
 void print(Node* head){
     Node* current = head;
 
@@ -51,40 +59,63 @@ int getMiddle(int middle, Node* head){
     Node* current = head;
 
     while(middle > 0){
-        cout << middle << " ";
         current = current->next;
         middle--;
     }
 
-    cout << endl;
     return current->data;
+}
+
+int getMiddle2(Node* head){
+    // edge cases (NodeList having 0 or 1 node)
+
+    if(head == NULL || head->next == NULL){
+        return head->data;
+    }
+
+    Node* oneStep = head;
+    Node* twoStep = head->next;
+
+    while(twoStep != NULL){
+        twoStep = twoStep->next;
+        if(twoStep != NULL){
+            twoStep = twoStep->next;
+        }
+        oneStep = oneStep->next;    
+    }
+
+    return oneStep->data;
 }
 
 int main(){
     Node* node1 = new Node(1);
     Node* head = node1;
+    Node* tail = node1;
 
-    insertathead(head, 2);
-    insertathead(head, 3);
-    insertathead(head, 4);
-    insertathead(head, 5);
-    insertathead(head, 6);
-
-    // cout << getLength(head) << endl;
-
-    int middleElementAt;
+    // insertathead(head, 2);
+    // insertathead(head, 3);
+    // insertathead(head, 4);
+    // insertathead(head, 5);
+    // insertathead(head, 6);
     
-    // cout << getLength(head) << endl;
+    
+    insertattail(tail, 2);
+    insertattail(tail, 3);
+    insertattail(tail, 4);
+    insertattail(tail, 5);
+    insertattail(tail, 6);
+    insertattail(tail, 7);
 
-    if(getLength(head) % 2 == 0){
-        // it's even
-        middleElementAt = getLength(head)/2;
-    }else{
-        middleElementAt = getLength(head)/2;
-    }
-
-    cout << getMiddle(middleElementAt, head) << endl;
-
+    // approach 1, time complexity = O(n) + O(n/2) [O(n) - for getMiddle function | O(n/2) - for getMiddle function]
+    int middleElementAt;
+    middleElementAt = getLength(head)/2;
+    
+    cout << endl << "Nodelist: ";
     print(head);
+
+    cout << "Middle Element of Nodelist: " << getMiddle(middleElementAt, head) << endl;
+
+    // approach 2, for a bit better complexity = O(n/2) [almost equals O(n)]
+    cout << "Middle Element of Nodelist through approach 2: " << getMiddle2(head) << endl << endl;
 
 }
