@@ -27,11 +27,13 @@
         "valarray": "cpp",
         "barrier": "cpp",
         "bitset": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "atomic": "cpp"
     },
     "cSpell.words": [
         "abmiguityclass",
         "anjali",
+        "foreward",
         "rahul",
         "updt"
     ]

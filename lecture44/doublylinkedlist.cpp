@@ -147,20 +147,20 @@ int main(){
     Node *head = node1;
     Node *tail = node1;
     print(head);
-    getLength(head);    
-    insertathead(20, head, tail);   
-    print(head);    
-    insertathead(30, head, tail);   
-    print(head);    
-    insertathead(40, head, tail);   
-    print(head);    
+    getLength(head);
+    insertathead(20, head, tail);
+    print(head);
+    insertathead(30, head, tail);
+    print(head);
+    insertathead(40, head, tail);
+    print(head);
     
-    insertattail(80, tail, head);   
-    print(head);    
-    insertattail(90, tail, head);   
-    print(head);    
-    insertattail(100, tail, head);  
-    print(head);    
+    insertattail(80, tail, head);
+    print(head);
+    insertattail(90, tail, head);
+    print(head);
+    insertattail(100, tail, head);
+    print(head);
     
     insertatposition(0, 7, head, tail);
     print(head);

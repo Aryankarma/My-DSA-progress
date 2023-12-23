@@ -142,52 +142,57 @@ void print(Node* &head){
     cout << endl;
 };
 
-Node* recursive(Node* &head, int k){  
-    // base case
-    // if(head == NULL){
-    //     return NULL;
-    // }
+Node* reverse(Node* head, int k) {
+        // base case
+    if(head == NULL){
+        return NULL;
+    }
 
     Node* current = head;
     Node* prev = NULL;
-    Node* foreword = NULL;
+    Node* foreward = NULL;
     int count = 0;
 
     while(current != NULL && count < k){
-        foreword = current->next;
+
+        foreward = current->next;
         current->next = prev;
         prev = current;
-        current = foreword;
+        current = foreward;
+
+        // cout << "head: " << current->data << " | ";
+        // print(current);
 
         count++;
     }
 
-    if(foreword != NULL){
-        cout << "head : " << head->data << endl;
-        head->next = recursive(foreword, k);
+    if(foreward != NULL){
+        head->next = foreward; 
+        head = prev;
+        // head->next = reverse(foreward, k);  // maybe wrong
+    }else if(foreward == NULL){
+        return prev;
     }
 
-    return prev;
-};
+    return head;
+}
 
 int main(){
 
-    Node *node1 = new Node(1);
+    Node *node1 = new Node(2);
     Node *head = node1;
     Node *tail = node1;
 
-    insertattail(2, tail);
-    insertattail(3, tail);
-    insertattail(4, tail);
+    // 5 4 3 7 9 2
+
+    insertattail(15, tail);
     insertattail(5, tail);
-    insertattail(6, tail);
-    insertattail(7, tail);
-    insertattail(8, tail);
+    insertattail(11, tail);
     
     print(head);
 
-    int k = 2;     
+    int k = 2;
 
-    recursive(head, k);
-    print(head);
+    Node* temphead =  reverse(head, k);
+    print(temphead);
 };

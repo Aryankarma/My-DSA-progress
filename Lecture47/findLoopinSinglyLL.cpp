@@ -66,41 +66,33 @@ Node* floyedLoopDetection(Node* &head){
     if(head == NULL){
         return NULL;
     }
-
     while(slow != NULL && fast != NULL){
         slow = slow->next;
         fast = fast->next;
         if(fast != NULL){
             fast = fast->next;
         }
-
         if(slow == fast){
             return slow; 
         }
     }
-
     return NULL;
 };
-
 Node* loopStart(Node* &head){
     Node* loopFoundAt = floyedLoopDetection(head);
     Node* slow = head;
-
     while(slow != loopFoundAt){
         slow = slow->next;
         loopFoundAt = loopFoundAt->next;
     }
     return slow;
 }
-
 void removeLoop(Node* &head){
     Node* startOfLoop = loopStart(head);
     Node* temp = startOfLoop->next;
-
     while(startOfLoop != temp->next){
         temp = temp->next;
     }
-
     temp->next = NULL;
 }
 
@@ -124,17 +116,21 @@ int main(){
 
     // creating a loop
     tail->next = head->next;
+    // test case (if tail is pointing to null) -- no loop present
+    // tail->next = head->next;
 
-    if(detectLoop(head)){
+    if(floyedLoopDetection(head)){
         cout << "Loop is present in the LL " << endl;
-    } 
-    cout << "loop found at: " << floyedLoopDetection(head)->data << endl;    
-    cout << "Starting point of loop: " << loopStart(head)->data << endl;
-    // before removing loop
-    // print(head);
-    // removing loop 
-    removeLoop(head);
-    // after removing loop
-    print(head);
+        cout << "loop found at: " << floyedLoopDetection(head)->data << endl;    
+        cout << "Starting point of loop: " << loopStart(head)->data << endl;
+        // before removing loop
+        // print(head);
+        // removing loop 
+        removeLoop(head);
+        // after removing loop
+        print(head);
+    }else{
+        cout << "Loop is not present. " << endl;
+    }
 
 }
