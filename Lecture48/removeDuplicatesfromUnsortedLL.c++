@@ -172,6 +172,15 @@ void removeDuplicate3(Node* head){
     return;
 }
 
+void removeDuplicate4(Node* head){
+    // sort the linked list
+    
+    // delete duplicates from sorted list
+    
+    
+    return;
+}
+
 int main(){
     Node *node1 = new Node(120);
     Node *head = node1;
@@ -188,6 +197,9 @@ int main(){
     // removeDuplicate2(head); // O(n^2) time complexity
     // print(head);
 
-    removeDuplicate3(head);
+    // removeDuplicate3(head); // optimized but still TLE :(
+    // print(head);
+
+    removeDuplicate4(head);
     print(head);
 }

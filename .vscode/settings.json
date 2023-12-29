@@ -28,13 +28,18 @@
         "barrier": "cpp",
         "bitset": "cpp",
         "new": "cpp",
-        "atomic": "cpp"
+        "atomic": "cpp",
+        "splitcircularllcpp": "cpp"
     },
     "cSpell.words": [
         "abmiguityclass",
         "anjali",
         "foreward",
+        "listtwo",
+        "nodeone",
+        "nodetwo",
         "rahul",
+        "tempnodeone",
         "updt"
     ]
 }
