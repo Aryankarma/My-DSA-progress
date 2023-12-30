@@ -40,7 +40,6 @@ void splitList(Node* &head){
     Node* slow = head;
     Node* fast = head->next;
 
-
     while(fast != head && fast->next != head){
 
         slow = slow->next;
@@ -55,42 +54,58 @@ void splitList(Node* &head){
     cout << "fast: " << fast->data << endl << endl;
 
     Node* temp = head;
-    Node* temp2 = slow;
+    Node* temp2 = slow->next;
 
-    Node* listone = head;
-    Node* listtwo = slow;
+    Node* listone = new Node(head->data);
+    Node* listtwo = new Node(slow->data);
 
-    Node* tempnodeone = listone;
-    Node* tempnodetwo = listtwo;
-    Node* nodeone = listone;
-    Node* nodetwo = listtwo;
+    Node* ptr1 = listone;
+    Node* ptr2 = listtwo;
 
+    Node* headone = listone;
+    Node* headtwo = listtwo;
+
+    int count=0;
     while(temp != slow){
-        tempnodeone->next = temp->next;        
-        tempnodetwo->next = temp2->next;
-
-        cout << "tempnodeone: " << tempnodeone->data << endl;    
-        cout << "tempnodetwo: " << tempnodetwo->data << endl;   
-
-        tempnodeone = tempnodeone->next;
-        tempnodetwo = tempnodetwo->next;
-        
-        cout << "tempnodeone next: " << tempnodeone->data << endl;    
-        cout << "tempnodetwo next: " << tempnodetwo->data << endl;   
-
+        count++;
         temp = temp->next;
+    }
+
+    cout << "count: " << count << endl << endl;
+    temp = head;
+
+    while(count>0){
+        ptr1->next = temp->next;
+        ptr1 = ptr1->next;
+        temp = temp->next;
+
+
+        if(ptr2->next == head){
+            break;
+        }
+
+        ptr2->next = temp2->next;
+        ptr2 = ptr2->next;
         temp2 = temp2->next;
+
+        // cout << "ptr1: " << ptr1->data << endl;   
+        // cout << "ptr2: " << ptr2->data << endl;
+        
+        // cout << "ptr1 next: " << ptr1->data << endl;    
+        // cout << "ptr2 next: " << ptr2->data << endl;   
+
+        count--;
     }
 
     cout << endl;
 
-    tempnodeone->next = NULL;
-    tempnodetwo->next = NULL;
+    ptr1->next = NULL;
+    ptr2->next = NULL;
 
     cout << "printing listone : " << endl;
-    print(nodeone);
+    print(headone);
     cout << "printing listtwo : " << endl;
-    print(nodetwo);
+    print(headtwo);
 
 }
 
@@ -100,16 +115,18 @@ int main(){
     Node* head = node1;
     Node* tail = node1;
 
-    print(head);
-
     insertattail(head, tail, 20);
     insertattail(head, tail, 30);
     insertattail(head, tail, 40);
     insertattail(head, tail, 50);
     insertattail(head, tail, 60);
     insertattail(head, tail, 70);
+    insertattail(head, tail, 80);
 
+    cout << "nodelist: ";
     print(head);
+
+    cout << endl;
 
     splitList(head);
 
