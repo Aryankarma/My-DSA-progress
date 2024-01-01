@@ -2,6 +2,18 @@
 #include<map>
 using namespace std;
 
+// Detect and Remove Loop
+/*  Problem Statement - Given a singly linked list, you have to detect the loop and remove the loop from the 
+    linked list, if present. You have to make changes in the given linked list itself and return the updated 
+    linked list.
+
+    Expected Complexity: Try doing it in O(n) time complexity and O(1) space complexity. Here, n is the number 
+    of nodes in the linked list.
+
+    Link to codespace [https://www.codingninjas.com/studio/problems/interview-shuriken-42-detect-and-remove-loop_241049?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_codestudio_lovebabbar28thjan&utm_source=youtube&utm_medium=affiliate&utm_campaign=YouTube_codestudio_lovebabbar28thjan]
+    
+*/
+
 class Node{
     public:
     int data;   // integer data

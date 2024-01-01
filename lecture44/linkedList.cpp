@@ -32,7 +32,7 @@ void insertathead(Node* &head, int data){
 }
 
 void insertattail(Node* &tail, int data){
-    Node *temp = new Node(data);
+    Node *temp = new Node(data);    
     tail -> next = temp;
     tail = temp;
 }

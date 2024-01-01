@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// splitting a circular linked list into 2 halves
+// splitting a circular linked list into 2 halves (HomeWork)
 
 class Node{
     public:
@@ -129,7 +129,5 @@ int main(){
     cout << endl;
 
     splitList(head);
-
-
 
 }

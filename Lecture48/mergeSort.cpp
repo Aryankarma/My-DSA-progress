@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// chatgpt solution to understand how to apply merge sort in linked list
+
 class Node {
 public:
     int data;

@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<map>
+#include<set>
 using namespace std;
 
 /*  Problem Statement -  Remove Duplicates From an Unsorted Linked List 
@@ -12,6 +13,8 @@ using namespace std;
 
     Number ‘2’ and ‘3’ occurs more than once. Hence we remove the duplicates and keep only their first occurrence. 
     So, our list becomes : 3 -> 2 -> 4 -> NULL.
+
+    Link to codespace [https://www.codingninjas.com/studio/problems/remove-duplicates-from-unsorted-linked-list_1069331?source=youtube&campaign=YouTube_Lovebabbar29thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=YouTube_Lovebabbar29thJan]    
 
 */
 
@@ -181,6 +184,28 @@ void removeDuplicate4(Node* head){
     return;
 }
 
+// optimized map function
+Node* removeDuplicate5(Node* head){
+    if (head == nullptr) {
+        return nullptr;
+    }
+
+    unordered_set<int> seen;
+    Node* current = head;
+    Node* previous = nullptr;
+
+    while (current){
+        if(seen.find(current->data) != seen.end()) {
+            previous->next = current->next;
+        }else{
+            seen.insert(current->data);
+            previous = current;
+        }
+        current = previous->next;
+    }
+    return head;
+}
+
 int main(){
     Node *node1 = new Node(120);
     Node *head = node1;
@@ -197,9 +222,12 @@ int main(){
     // removeDuplicate2(head); // O(n^2) time complexity
     // print(head);
 
-    // removeDuplicate3(head); // optimized but still TLE :(
+    // removeDuplicate3(head); // optimized but still TLE :(   O(n)
     // print(head);
 
-    removeDuplicate4(head);
+    // removeDuplicate4(head);
+    // print(head);
+
+    removeDuplicate5(head);
     print(head);
 }

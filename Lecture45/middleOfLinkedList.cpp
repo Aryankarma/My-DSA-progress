@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Middle of Linked List
+/*  Problem Statement - Given a singly linked list of 'N' nodes. The objective is to determine the middle node of a singly linked list. 
+    However, if the list has an even number of nodes, we return the second middle node.
+
+    Link to codespace [https://www.codingninjas.com/studio/problems/middle-of-linked-list_973250?source=youtube&campaign=Lovebabbarcodestudio_24thJan&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio_24thJan] 
+*/
+
 class Node{
 
     public:
