@@ -69,8 +69,7 @@ void printRan(Node* &head){
     cout << endl;
 }
 
-int main(){       
-          
+int main(){ 
     Node* OriginalList = new Node(1);        
           
     Node *headOrig = OriginalList;
@@ -83,9 +82,9 @@ int main(){
     headOrig->ran = headOrig->next; // (1,2)    
     headOrig->next->ran = tailOrig; // (2,4)
 
-    print(headOrig);
-    cout << "printing random pointers..." << endl;
-    printRan(headOrig);
+    // print(headOrig);
+    // cout << "printing random pointers..." << endl;
+    // printRan(headOrig);
 
     Node* CloneList = new Node(headOrig->data);
     Node* headClone = CloneList;
@@ -94,37 +93,100 @@ int main(){
     Node* currOrig = headOrig;
     Node* currClone = headClone;
     
+    // approach 1 (with space and time complexity of O(n))
     // copying original list with next pointer
+    // while(currOrig->next != NULL){
+    //     insertattail(tailClone, currOrig->next->data);
+    //     currOrig = currOrig->next;
+    // }
+
+    // cout << "original list: " << endl;
+    // print(headOrig);
+    // cout << "clone list: " << endl;
+    // print(headClone);
+
+    // // mapping original list nodes with clone list nodes
+    // currOrig = headOrig;
+    // currClone = headClone;
+
+    // map<Node*, Node*> mapping;
+    // while(currOrig != NULL){
+    //     mapping[currOrig] = currClone;
+    //     currOrig = currOrig->next;
+    //     currClone = currClone->next;
+    // }
+
+    // // setting up random pointers in the clone list
+    // currOrig = headOrig;
+    // currClone = headClone;
+
+    // while(currClone != NULL){
+    //     if(currOrig->ran){
+    //         // cout << "currOrig->ran->data " << mapping[currOrig->ran]->data << endl;
+    //         currClone->ran = mapping[currOrig->ran];
+    //     }
+    //     currOrig = currOrig->next;
+    //     currClone = currClone->next;
+    // }
+
+    // // reseting for print test (temporary)
+    // currOrig = headOrig;
+    // currClone = headClone;
+
+    // cout << "printing random poniters: " << endl;
+
+    // cout << "original list randoms: " << endl;
+    // printRan(headOrig);
+    // cout << "clone list randoms: " << endl;
+    // printRan(headClone);
+
+
+
+    // approach 2 (saving space complexity, turning some pointers here and there, time complexity: O(n), space comp: O(1))
+    // copying the next pointers in cloneList
     while(currOrig->next != NULL){
         insertattail(tailClone, currOrig->next->data);
         currOrig = currOrig->next;
     }
 
-    cout << "original list: " << endl;
-    print(headOrig);
-    cout << "clone list: " << endl;
-    print(headClone);
-
-    // mapping original list nodes with clone list nodes
+    // reset pointers
     currOrig = headOrig;
     currClone = headClone;
 
-    map<Node*, Node*> mapping;
-    while(currOrig != NULL){
-        mapping[currOrig] = currClone;
-        currOrig = currOrig->next;
-        currClone = currClone->next;
+    // adding cloneList nodes b/w OriginalList 
+    while(currClone != NULL){
+        Node* CloneNext = currClone->next;
+        Node* OrigNext = currOrig->next;
+
+        currOrig->next = currClone;
+        currClone->next = OrigNext;
+        
+        currOrig = OrigNext;
+        currClone = CloneNext;
     }
 
-    // setting up random pointers in the clone list
+    // reset pointers
     currOrig = headOrig;
     currClone = headClone;
 
-    while(currClone != NULL){
+    // copying random pointers
+    while(currClone->next != NULL){
         if(currOrig->ran){
-            // cout << "currOrig->ran->data " << mapping[currOrig->ran]->data << endl;
-            currClone->ran = mapping[currOrig->ran];
+            currClone->ran = currOrig->ran->next;
         }
+        currOrig = currOrig->next->next;
+        currClone = currClone->next->next;
+    }
+    
+
+    // reset pointers
+    currOrig = headOrig;
+    currClone = headClone;
+
+    while(currClone->next != NULL){
+        currOrig->next = currOrig->next->next;
+        currClone->next = currClone->next->next;
+
         currOrig = currOrig->next;
         currClone = currClone->next;
     }
@@ -133,12 +195,16 @@ int main(){
     currOrig = headOrig;
     currClone = headClone;
 
-    cout << "printing random poniters: " << endl;
+    // cout << "origninal list nexts: " << endl;
+    // print(currOrig);
+    // cout << "clone list nexts: " << endl;
+    // print(currClone);
 
-    cout << "original list randoms: " << endl;
-    printRan(headOrig);
-    cout << "clone list randoms: " << endl;
-    printRan(headClone);
+    // cout << "original list randoms: " << endl;
+    // printRan(headOrig);
+    // cout << "clone list randoms: " << endl;
+    // printRan(headClone);
+
 }
 
 
@@ -150,7 +216,7 @@ int main(){
 // class Solution
 // {
 //     public:
-    
+
 //     void insertattail(Node* &tail, int data){
 //         Node *temp = new Node(data);    
 //         tail -> next = temp;
