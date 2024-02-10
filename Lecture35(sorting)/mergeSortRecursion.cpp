@@ -70,7 +70,7 @@ void merge(int *arr, int start, int end){
 }
 
 void mergeSort(int *arr, int start, int end){
-    cout << "mergeSort calling \n";
+    // cout << "mergeSort calling \n";
     if(start >= end){
         return ;
     }
@@ -81,8 +81,8 @@ void mergeSort(int *arr, int start, int end){
 }
 
 int main(){
-    int size = 3;
-    int arr[size] = {97,87,23};
+    int size = 7;
+    int arr[size] = {7,6,5,4,3,2,1};
     mergeSort(arr, 0, size-1);
     for(int i=0; i<size; i++){
         cout << arr[i] << " ";

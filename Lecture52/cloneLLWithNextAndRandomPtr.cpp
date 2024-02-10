@@ -185,10 +185,14 @@ int main(){
 
     while(currClone->next != NULL){
         currOrig->next = currOrig->next->next;
-        currClone->next = currClone->next->next;
-
         currOrig = currOrig->next;
+
+        currClone->next = currClone->next->next;
         currClone = currClone->next;
+
+        if(currOrig->next->next == NULL){
+            currOrig->next = NULL;
+        }
     }
 
     // reseting for print test (temporary)
