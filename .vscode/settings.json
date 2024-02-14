@@ -29,7 +29,8 @@
         "bitset": "cpp",
         "new": "cpp",
         "atomic": "cpp",
-        "splitcircularllcpp": "cpp"
+        "splitcircularllcpp": "cpp",
+        "variant": "cpp"
     },
     "cSpell.words": [
         "abmiguityclass",
