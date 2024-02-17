@@ -75,13 +75,14 @@ bool checkLoopOptimized(Node* &head){
         slow = slow->next;
         fast = fast->next;
 
-        if(fast->next != NULL){
+        if(fast == NULL){
+            return false;
+        }else if(fast->next != NULL){
             fast = fast->next;
         }else{
             return false;
-        }     
+        }
     }
-
     return false;
 }
 
