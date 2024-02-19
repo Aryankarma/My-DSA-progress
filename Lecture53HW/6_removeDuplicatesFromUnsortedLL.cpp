@@ -62,43 +62,40 @@ void print(Node* &head){
     cout << endl;
 }
 
-Node* removeDuplicates(Node *head) {
+Node* removeDuplicates(Node* head) {
     if (head == nullptr) {
         return nullptr;
     }
 
-    // Node* curr = head;
+    Node* curr = head;
+    Node* prev = NULL;
 
     // implementing set
     unordered_set<int> check;
 
-    // check.insert(1);
-    // check.insert(10);
-    // check.insert(10);
-    // check.insert(10);
-    // check.insert(100);
+    while(curr != NULL){
+        int data = curr->data;
+        if(check.find(data) != check.end()){
+            prev->next = curr->next;
+        }else{
+            check.insert(data);
+            prev = curr;
+        }
+        curr = curr->next;
+    }
 
-    // while(curr != NULL){
-
-    //     if(check.find(curr->data)   ){
-
-    //     }
-
-    //     curr = curr->next;
-    // }
-
+    return head;
 };
 
 int main(){
           
-    Node* node1 = new Node(4);
+    Node* node1 = new Node(2);
           
     Node *head = node1;
     Node *tail = node1;
 
     insertattail(tail, 2);
-    insertattail(tail, 5);
-    insertattail(tail, 4);
+    insertattail(tail, 2);
     insertattail(tail, 2);
     insertattail(tail, 2);
 
