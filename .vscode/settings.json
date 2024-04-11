@@ -30,7 +30,8 @@
         "new": "cpp",
         "atomic": "cpp",
         "splitcircularllcpp": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "any": "cpp"
     },
     "cSpell.words": [
         "abmiguityclass",
