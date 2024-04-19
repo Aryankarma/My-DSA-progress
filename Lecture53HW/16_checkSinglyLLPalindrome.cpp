@@ -1,5 +1,5 @@
 // SINGLY LINKED LIST
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 /* Problem Statement - 
@@ -38,7 +38,7 @@ void insertattail(Node* &tail, int data){
     tail = temp;
 }
 
-void print(Node* &head){
+void prinsdft(Node* &head){
     Node* current = head;
 
     while(current != NULL){
@@ -84,7 +84,7 @@ bool checkPalindrome(Node* head){
     return true;
 };
 
-int main(){       
+int main(){
           
     Node* node1 = new Node(1); 
           

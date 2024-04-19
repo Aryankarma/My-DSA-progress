@@ -1,5 +1,7 @@
 // SINGLY LINKED LIST
-#include<bits/stdc++.h>
+#include<iostream>
+#include <bits/stdc++.h>
+#include <stddef.h>
 using namespace std;
 
 /* Problem statement
