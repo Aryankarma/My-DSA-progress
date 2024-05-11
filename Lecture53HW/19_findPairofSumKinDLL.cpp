@@ -108,12 +108,31 @@ void insertattail(int data, Node* head, Node* &tail){
     }
 }
 
-Node* findPairInDLL(Node* head){
+Node* findPairInDLL(Node* head, int k){
     vector<pair<int, int>> pairs;
 
-    pairs.push_back({1,2});
+    Node* start = head;
+    Node* end = head;
 
-    cout << pairs[0] << endl;
+    while(end->next != NULL){
+        end = end->next;
+    }
+
+    while(start->data < end->data){
+        if(start->data + end->data > k){
+            end = end->prev;
+        }else if(start->data + end->data < k){
+            start = start->next;
+        }else{
+            pairs.push_back({start->data, end->data});
+            start = start->next;
+            end = end->prev;
+        }
+    }
+
+    for(const auto &p: pairs){
+        cout << p.first << " " << p.second << endl;
+    }
 
     return NULL;
 }
@@ -129,7 +148,12 @@ int main(){
     insertattail(4, head, tail);
     insertattail(5, head, tail);
 
-    head = findPairInDLL(head);
+    int k = 0;
+
+    cout << "Enter number to find pairs: " << endl;
+    cin >> k;
+
+    head = findPairInDLL(head, k);
 
     print(head);
 } 
