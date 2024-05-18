@@ -100,7 +100,7 @@ void insertattail(int data, Node* head, Node* &tail){
     }
 }
 
-// approach 1, mostly worked but codingninjas has an invalid input that failed this algo to work on their platform
+// approach 1, probably worked but codingninjas has an invalid input that failed this algo to work on their platform
 void findTripletsInDLL(Node* head, int k){
     cout << "entered the function" << endl;
     Node* first = head;
@@ -184,6 +184,33 @@ void findTripletsInDLL(Node* head, int k){
     }
 }
 
+int countAllTripletSum(Node *head, int x){
+    int count = 0;
+    if (head == NULL)
+        return count;
+
+    Node *tail = head;
+    while (tail->next){
+        tail = tail->next;
+    }
+    
+    for (Node *num1 = head; num1->next && num1->next->next; num1 = num1->next){
+        Node *num2 = num1->next, *num3 = tail;
+        int target = x - num1->data;
+        while (num2 != num3){
+            int currSum = num2->data + num3->data;
+            count += (currSum == target);
+            if (currSum <= target){
+                num2 = num2->next;
+            }else{
+                num3 = num3->prev;
+            }
+        }
+    }
+
+    return count;
+}
+
 int main(){
     Node* listhead = new Node(1);
 
@@ -199,5 +226,7 @@ int main(){
     cout << "Enter number to find pairs : " << endl;
     cin >> k;
 
-    findTripletsInDLL(head, k);
-} 
+    // findTripletsInDLL(head, k);
+    int ans = countAllTripletSum(head, k);
+    cout << "ans is : " << ans << endl;
+}
