@@ -199,7 +199,9 @@ int countAllTripletSum(Node *head, int x){
         int target = x - num1->data;
         while (num2 != num3){
             int currSum = num2->data + num3->data;
-            count += (currSum == target);
+            if (currSum == target){
+                count += 1;
+            }
             if (currSum <= target){
                 num2 = num2->next;
             }else{
@@ -217,16 +219,19 @@ int main(){
     Node* head = listhead;
     Node* tail = listhead;
 
-    insertattail(4, head, tail);
-    insertattail(6, head, tail);
     insertattail(2, head, tail);
+    insertattail(3, head, tail);
+    insertattail(4, head, tail);
+    insertattail(5, head, tail);
+    insertattail(7, head, tail);
+    insertattail(8, head, tail);
 
     int k = 0;
 
     cout << "Enter number to find pairs : " << endl;
     cin >> k;
 
-    // findTripletsInDLL(head, k);
+    // findTripletsInDLL(head, k);  
     int ans = countAllTripletSum(head, k);
     cout << "ans is : " << ans << endl;
 }
