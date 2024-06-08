@@ -21,8 +21,7 @@ public:
     Node *next;
 
     // constructor
-    Node(int value)
-    {
+    Node(int value){
         this->data = value;
         this->prev = nullptr;
         this->next = nullptr;
