@@ -9,7 +9,7 @@
     Your task is to flatten this linked such that all nodes appear in a single layer or level in a 'sorted order'.
 
     Explanation:
-    The returned linked list should be in a sorted order. All the elements in this returned linked list are connected 
+    The returned linked list should be in a sorted order. All the elements in this returned linked list are connected
     by 'child' pointers and 'next' pointers point to null.
 
 */
@@ -41,7 +41,6 @@ Node *merge2LinkedList(Node *head1, Node *head2){
 
     Node *finalHead = temp->child;
     delete temp;
-
     return finalHead;
 }
 

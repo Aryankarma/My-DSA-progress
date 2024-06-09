@@ -1,20 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// Merge Two Sorted Linked Lists
-/*  
-    Problem Statement - You are given two sorted linked lists. You have to merge them to produce a 
-    combined sorted linked list. You need to return the head of the final linked list.
-    
-    Note:
-
-    The given linked lists may or may not be null.
-    For example:
-    If the first list is: 1 -> 4 -> 5 -> NULL and the second list is: 2 -> 3 -> 5 -> NULL
-    The final list would be: 1 -> 2 -> 3 -> 4 -> 5 -> 5 -> NULL
-    Link to codespace [https://www.codingninjas.com/studio/problems/merge-two-sorted-linked-lists_800332?leftPanelTab=0%3Fsource%3Dyoutube&campaign=YouTube_Lovebabbar31stJan2021&utm_source=youtube&utm_medium=affiliate&utm_campaign=YouTube_Lovebabbar31stJan2021]
-
-*/
+// Merge Two Sorted Lin
 
 
 class Node{
