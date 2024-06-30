@@ -15,7 +15,7 @@ using namespace std;
 
 class Node{
     public:
-    int data;   // integer data
+    // int data;   // integer data
     Node *next;  // pointer variable "add" that stores the address of object
 
     // constructor

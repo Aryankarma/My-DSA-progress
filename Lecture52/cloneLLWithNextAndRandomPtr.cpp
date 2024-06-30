@@ -153,7 +153,7 @@ int main(){
     currOrig = headOrig;
     currClone = headClone;
 
-    // adding cloneList nodes b/w OriginalList 
+    // adding cloneList nodes b/w OriginalList
     while(currClone != NULL){
         Node* CloneNext = currClone->next;
         Node* OrigNext = currOrig->next;
@@ -217,59 +217,59 @@ int main(){
 // GFG worked solution {approach 1, time O(n), space O(n)} -
 
 
-// class Solution
-// {
-//     public:
+class Solution
+{
+    public:
 
-//     void insertattail(Node* &tail, int data){
-//         Node *temp = new Node(data);    
-//         tail -> next = temp;
-//         tail = temp;
-//     }
+    void insertattail(Node* &tail, int data){
+        Node *temp = new Node(data);    
+        tail -> next = temp;
+        tail = temp;
+    }
 
-//     Node *copyList(Node *head){
+    Node *copyList(Node *head){
         
-//         Node *headOrig = head;
-//         Node *tailOrig = head;
+        Node *headOrig = head;
+        Node *tailOrig = head;
     
-//         Node* CloneList = new Node(headOrig->data);
-//         Node* headClone = CloneList;
-//         Node* tailClone = CloneList;
+        Node* CloneList = new Node(headOrig->data);
+        Node* headClone = CloneList;
+        Node* tailClone = CloneList;
     
-//         Node* currOrig = headOrig;
-//         Node* currClone = headClone;
+        Node* currOrig = headOrig;
+        Node* currClone = headClone;
         
-//         // copying original list with next pointer
-//         while(currOrig->next != NULL){
-//             insertattail(tailClone, currOrig->next->data);
-//             currOrig = currOrig->next;
-//         }
+        // copying original list with next pointer
+        while(currOrig->next != NULL){
+            insertattail(tailClone, currOrig->next->data);
+            currOrig = currOrig->next;
+        }
         
-//         // mapping original list nodes with clone list nodes
-//         currOrig = headOrig;
-//         currClone = headClone;
+        // mapping original list nodes with clone list nodes
+        currOrig = headOrig;
+        currClone = headClone;
     
-//         map<Node*, Node*> mapping;
-//         while(currOrig != NULL){
-//             mapping[currOrig] = currClone;
-//             currOrig = currOrig->next;
-//             currClone = currClone->next;
-//         }
+        map<Node*, Node*> mapping;
+        while(currOrig != NULL){
+            mapping[currOrig] = currClone;
+            currOrig = currOrig->next;
+            currClone = currClone->next;
+        }
     
-//         // setting up random pointers in the clone list
-//         currOrig = headOrig;
-//         currClone = headClone;
+        // setting up random pointers in the clone list
+        currOrig = headOrig;
+        currClone = headClone;
         
-//         while(currClone != NULL){
-//             if(currOrig->arb){
-//                 // cout << "currOrig->arb->data " << mapping[currOrig->arb]->data << endl;
-//                 currClone->arb = mapping[currOrig->arb];
-//             }
-//             currOrig = currOrig->next;
-//             currClone = currClone->next;
-//         }
+        while(currClone != NULL){
+            if(currOrig->arb){
+                // cout << "currOrig->arb->data " << mapping[currOrig->arb]->data << endl;
+                currClone->arb = mapping[currOrig->arb];
+            }
+            currOrig = currOrig->next;
+            currClone = currClone->next;
+        }
     
-//         return headClone;
-//     }
+        return headClone;
+    }
 
-// };
+};
