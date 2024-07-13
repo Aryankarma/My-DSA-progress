@@ -8,7 +8,6 @@ using namespace std;
 
     The multiplied list is a linked list representation of the multiplication of two numbers.
 
-
     Link to CodingNinjas [https://www.naukri.com/code360/problems/multiply-linked-lists_983603?topList=love-babbar-dsa-sheet-problems&utm_source=website&utm_medium=affiliate&utm_campaign=450dsatracker]
 */
 

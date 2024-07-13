@@ -1,6 +1,23 @@
-// SINGLY LINKED LIST
 #include <bits/stdc++.h>
 using namespace std;
+
+/*  Problem Statement - Delete Nodes Which Have A Greater Value On Right Side
+
+    You are given a linked list of integers where each node has two fields: data field which contains a value, 'next'
+    field which points to its adjacent node to the right or NULL if it is the last node. Your task is to delete all such
+     nodes X, whose adjacent nodes to the right have strictly greater value than the value of X.
+
+    A singly linked list is a linear data structure in which we can traverse only in one direction i.e. from Head to
+    Tail. It consists of several nodes where each node contains some data and a reference to the next node.
+
+    A sample Linked List-
+
+    Follow Up:
+    Can you solve this in linear time and constant space complexity?
+
+    Link to CodingNinjas [https://www.naukri.com/code360/problems/delete-nodes-which-have-a-greater-value-on-right-side_1115785?topList=love-babbar-dsa-sheet-problems&utm_source=website&utm_medium=affiliate&utm_campaign=450dsatracker&leftPanelTabValue=PROBLEM]
+
+*/
 
 class Node{
 public:
@@ -31,38 +48,46 @@ void print(Node *&head){
 }
 
 Node* deleteNodes(Node* head){
-    Node *initial = new Node(0);
-    initial->next = head;
-    Node *headMain = initial;
-    Node *curr = initial;
-    Node *temp = NULL;
+    Node *curr = head;
+    Node *prev = NULL;
+    bool retry = false;
 
-    while (curr->next != NULL && curr->next->next != NULL){
-        if (curr->next->data < curr->next->next->data){
-            temp = curr->next;
-            curr->next = curr->next->next;
-            cout << "temp data : " << temp->data << " ";
+    while (curr != NULL && curr->next != NULL){
+        if (curr->data < curr->next->data){
+            Node *temp = curr;
+            curr = curr->next;
+            if (prev != NULL){
+                prev->next = curr;
+            }else{
+                head = curr;
+            }
             delete temp;
-        } else {
+            retry = true;
+        }else{
+            prev = curr;
             curr = curr->next;
         }
+        if (curr->next == NULL && retry == true){
+            curr = head;
+            prev = NULL;
+            retry = false;
+        }
     }
-    return headMain->next;
+
+    return head;
 }
 
 int main(){
-    Node *node = new Node(8);
+    Node *node = new Node(10);
 
     Node *head = node;
     Node *tail = node;
 
-    insertattail(tail, 7);
     insertattail(tail, 8);
-    insertattail(tail, 4);
+    insertattail(tail, 7);
+    insertattail(tail, 12);
     insertattail(tail, 5);
-    insertattail(tail, 6);
-    insertattail(tail, 2);
-    insertattail(tail, 1);
 
-    deleteNodes(head);
+    Node* temp = deleteNodes(head);
+    print(temp);
 }
