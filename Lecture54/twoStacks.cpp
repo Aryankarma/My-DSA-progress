@@ -22,12 +22,10 @@
 
 */
 
-
 // solution
 
 #include <bits/stdc++.h>
-class TwoStack
-{
+class TwoStack{
 
 public:
     int *arr;
@@ -35,8 +33,7 @@ public:
     int top;
     int top2;
 
-    TwoStack(int s)
-    {
+    TwoStack(int s){
         this->size = s;
         this->arr = new int[s];
         this->top = -1;

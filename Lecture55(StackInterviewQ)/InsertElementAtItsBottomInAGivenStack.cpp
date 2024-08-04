@@ -13,10 +13,31 @@ using namespace std;
     Link to codingNinjas [https://www.naukri.com/code360/problems/insert-an-element-at-its-bottom-in-a-given-stack_1171166?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0%3Fsource%3Dyoutube&campaign=Lovebabbarcodestudio&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbarcodestudio]
 */
 
+void insertEleAtBottomRecursion(stack<int> &stk, int element){
+    if(stk.empty()){
+        stk.push(element);
+        return;
+    }
+
+    int n = stk.top();
+    stk.pop();
+
+    insertEleAtBottom(stk, element);
+
+    stk.push(n);
+};
 
 // simple!
 int main(){
     stack<int> temp;
+
+    temp.push(1);
+    temp.push(2);
+    temp.push(3);
+    temp.push(4);
+    temp.push(5);
+
+    stack<int> temp2 = temp;
 
     // push all the elements into a temporary/auxilary stack
     while (!myStack.empty()){
@@ -34,4 +55,11 @@ int main(){
     }
 
     return myStack;
+
+    // approach 2 - using recursion
+    insertEleAtBottomRecursion(temp2, 9);
+    while(!temp2.empty()){
+        cout << temp2.top() << " ";
+        temp2.pop();
+    }
 }
