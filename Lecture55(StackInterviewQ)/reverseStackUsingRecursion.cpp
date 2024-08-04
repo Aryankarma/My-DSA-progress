@@ -20,7 +20,7 @@ void insertatbottom(stack<int> &stk, int element){
         return;
     }
 
-    int n = stk.top();
+    int n = stk.top();      
     stk.pop();
 
     insertatbottom(stk, element);
