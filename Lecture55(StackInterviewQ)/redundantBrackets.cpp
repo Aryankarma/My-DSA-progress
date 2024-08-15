@@ -50,10 +50,10 @@ int main(){
                     char top = stk.top();
                     if (top == '+' || top == '-' || top == '*' || top == '/'){
                         isRed = false;
-                    }
+                    } 
                     stk.pop();
                 }
-
+ 
                 if (isRed){
                     return true;
                 }
