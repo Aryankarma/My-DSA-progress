@@ -26,9 +26,9 @@ vector<int> nextSmallerElement(vector<int> &arr, int n){
         result[i] = result[j]; 
         result[j] = temp;
     }
- 
+   
     return result;
-};
+};  
 
 int main(){
     // 5 4 3 2 1

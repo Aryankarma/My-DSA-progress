@@ -5,7 +5,7 @@ using namespace std;
 
     You’re given a stack consisting of 'N' integers. Your task is to sort this stack in descending order using recursion.
 
-    We can only use the following functions on this stack S.
+    We can only use the following functions on this stack S.  
 
     is_empty(S) : Tests whether stack is empty or not.
     push(S) : Adds a new element to the stack.
@@ -49,13 +49,13 @@ int main(){
     stack<int> s;
 
     s.push(2);
-    s.push(3);
+    s.push(3); 
     s.push(4);
     s.push(5);
     s.push(6);
 
     sortStack(s);
-
+ 
     while(!s.empty()){
         cout << s.top() << " ";
         s.pop();
