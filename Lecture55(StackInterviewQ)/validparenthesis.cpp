@@ -19,7 +19,7 @@ using namespace std;
 int main(){
     string s = "[{()(){[]}{}]"; // balanced
 
-    // approach 1 without stacks
+    // approach 1 without stack
     int count1 = 0;
     int count2 = 0;
     int count3 = 0;
