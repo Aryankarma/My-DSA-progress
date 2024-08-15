@@ -54,7 +54,7 @@ int main(){
                     stk.pop();
                 }
  
-                if (isRed){
+                if (isRed){ 
                     return true;
                 }
 
