@@ -57,7 +57,7 @@ int main(){
     sortStack(s);
  
     while(!s.empty()){
-        cout << s.top() << " ";
+        cout << s.top() << " "; 
         s.pop();
     }
 
