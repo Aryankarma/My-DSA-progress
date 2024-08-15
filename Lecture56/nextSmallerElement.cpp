@@ -23,7 +23,7 @@ vector<int> nextSmallerElement(vector<int> &arr, int n){
 
     for(int i = 0, j = result.size() - 1; i < j; i++, j--){
         int temp = result[i];
-        result[i] = result[j];
+        result[i] = result[j]; 
         result[j] = temp;
     }
 
