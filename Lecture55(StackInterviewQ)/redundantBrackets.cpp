@@ -49,7 +49,7 @@ int main(){
                 while(stk.top() != '('){
                     char top = stk.top();
                     if (top == '+' || top == '-' || top == '*' || top == '/'){
-                        isRed = false;
+                        isRed = false; 
                     } 
                     stk.pop();
                 }
