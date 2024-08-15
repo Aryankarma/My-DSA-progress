@@ -53,7 +53,7 @@ int main(){
     s.push(4);
     s.push(5);
     s.push(6);
-
+ 
     sortStack(s);
  
     while(!s.empty()){
