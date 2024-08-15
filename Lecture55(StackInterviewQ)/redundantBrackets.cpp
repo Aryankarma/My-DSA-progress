@@ -51,7 +51,7 @@ int main(){
                     if (top == '+' || top == '-' || top == '*' || top == '/'){
                         isRed = false; 
                     } 
-                    stk.pop();
+                    stk.pop();  
                 }
  
                 if (isRed){ 
