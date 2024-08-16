@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// my approach - working ( a lil complicated :< )
 vector<int> nextSmallerElement(vector<int> &arr, int n){
     stack<int> stk;
     vector<int> result;
+    stk.push(-1);
 
     for(int i = n-1; i >= 0; i--){
         if(i == n-1){
@@ -16,8 +18,11 @@ vector<int> nextSmallerElement(vector<int> &arr, int n){
             result.push_back(stk.top());
             stk.push(arr[i]);
         }else{
+            while (stk.top() >= arr[i]) {
+                stk.pop();
+            }
+            result.push_back(stk.top());
             stk.push(arr[i]);
-            result.push_back(-1);
         }
     }
 
@@ -30,10 +35,30 @@ vector<int> nextSmallerElement(vector<int> &arr, int n){
     return result;
 };  
 
+// original approach
+vector<int> nextSmallerElement2(vector<int> &arr, int n) {
+    stack<int> s;
+    s.push(-1);
+    vector<int> ans(n);
+    
+    for(int i=n-1; i>=0; i--) {
+        int curr = arr[i];
+        while (s.top() >= curr) {
+          s.pop();
+        }
+        // ans is stack ka top
+        ans[i] = s.top();
+        s.push(curr);
+    }
+    return ans;
+}
+
 int main(){
-    // 5 4 3 2 1
-    vector<int> vect = {5, 4, 3, 2, 1};
-    vector<int> result = nextSmallerElement(vect, 5);
+    // vector<int> vect = {2,1,4,3};
+    vector<int> vect = {3,3,1,1};
+    // vector<int> vect = {1, 2, 1, 2, 1, 2, 1};
+    // vector<int> vect = {1, 0, 2, 1, 2, 0};
+    vector<int> result = nextSmallerElement2(vect, vect.size());
 
     for (int i = 0; i < result.size(); i++){
         cout << result[i] << " ";
