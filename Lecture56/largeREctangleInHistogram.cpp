@@ -16,7 +16,8 @@ using namespace std;
     Input: heights = [2,4]
     Output: 4
 
-    Link to Leetcode [https://leetcode.com/problems/largest-rectangle-in-histogram/description/]
+    Link to Leetcode [https://leetcode.com/problems/largest-rectangle-in-histogram/description]
+
 */
 
 // approach 1, time complexity O(n^2), simple bruteforce
@@ -59,9 +60,68 @@ int largestRectangleArea(vector<int> heights) {
     return ans;
 }
 
+vector<int> rightSmallerElement(vector<int> &arr, int n) {
+    stack<int> s;
+    s.push(-1);
+    vector<int> ans(n);
+
+    for(int i=n-1; i>=0; i--) {
+        int curr = arr[i];
+        while (s.top() != -1 && arr[s.top()] >= curr) {
+          s.pop();
+        }
+        // ans is stack ka top
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+vector<int> leftSmallerElement(vector<int> &arr, int n) {
+    stack<int> s;
+    s.push(-1);
+    vector<int> ans(n);
+
+    for(int i=0; i<n; i++) {
+        int curr = arr[i];
+        while (s.top() != -1 && arr[s.top()] >= curr) {
+          s.pop();
+        }
+        // ans is stack ka top
+        ans[i] = s.top();
+        s.push(i);
+    }
+    return ans;
+}
+
+int largestRectangleArea2(vector<int> heights) {
+
+    int s = heights.size();
+
+    vector<int> leftSmallerElements(s);
+    vector<int> rightSmallerElements(s);
+
+    leftSmallerElements = leftSmallerElement(heights, s);
+    rightSmallerElements = rightSmallerElement(heights, s);
+
+    int area = 0;
+
+    for(int i=0; i<s; i++){  
+
+        int length = heights[i];
+        if(rightSmallerElements[i] == -1){
+            rightSmallerElements[i] = s;
+        }
+
+        int breadth = rightSmallerElements[i] - leftSmallerElements[i] - 1;
+        area = max(area, length*breadth);
+    }
+
+    return area;
+}
 
 int main(){
     vector<int> vect = {2,1,5,6,2,3};
-    int result = largestRectangleArea(vect);
+    int result = largestRectangleArea2(vect);
     cout << result << endl;
 }
