@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// my approach - working ( a lil complicated :< )
+// my approach - working - ( i know i messed up, leaving this for memory :< )
+// could have - pushed in the vector instead of push_back, just initialize with the size. fixed the repetition of result pushback and stk push
 vector<int> nextSmallerElement(vector<int> &arr, int n){
     stack<int> stk;
     vector<int> result;
@@ -54,7 +55,7 @@ vector<int> nextSmallerElement2(vector<int> &arr, int n) {
 }
 
 int main(){
-    vector<int> vect = {3,3,1,1};
+    vector<int> vect = {2,1,4};
     vector<int> result = nextSmallerElement2(vect, vect.size());
 
     for (int i = 0; i < result.size(); i++){

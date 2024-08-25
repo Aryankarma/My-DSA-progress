@@ -20,7 +20,7 @@ using namespace std;
 
 */
 
-// approach 1, time complexity O(n^2), simple bruteforce
+// approach 1, time complexity O(n^2), simple bruteforce, going from left to right
 int largestRectangleArea(vector<int> heights) {
     int breadth[heights.size()];
     for(int i = 0; i < heights.size(); i++) {
@@ -35,6 +35,7 @@ int largestRectangleArea(vector<int> heights) {
                 break;
             }
         }
+
         // loop for right side
         for(int r=i+1; r<heights.size(); r++){
             if(heights[r] >= heights[i]){
@@ -60,6 +61,7 @@ int largestRectangleArea(vector<int> heights) {
     return ans;
 }
 
+// we are storing the indexes here and not the actual value
 vector<int> rightSmallerElement(vector<int> &arr, int n) {
     stack<int> s;
     s.push(-1);
@@ -77,6 +79,7 @@ vector<int> rightSmallerElement(vector<int> &arr, int n) {
     return ans;
 }
 
+// we are storing the indexes here and not the actual value
 vector<int> leftSmallerElement(vector<int> &arr, int n) {
     stack<int> s;
     s.push(-1);
@@ -94,6 +97,7 @@ vector<int> leftSmallerElement(vector<int> &arr, int n) {
     return ans;
 }
 
+// approach 2, time complexity O(n), optimized approach
 int largestRectangleArea2(vector<int> heights) {
 
     int s = heights.size();
@@ -107,7 +111,6 @@ int largestRectangleArea2(vector<int> heights) {
     int area = 0;
 
     for(int i=0; i<s; i++){  
-
         int length = heights[i];
         if(rightSmallerElements[i] == -1){
             rightSmallerElements[i] = s;
