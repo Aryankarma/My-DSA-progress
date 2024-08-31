@@ -1,5 +1,5 @@
 /*  Problem Statement - The celebrity problem 
-
+ 
     A celebrity is a person who is known to all but does not know anyone at a party. A party is being
     organized by some people.  A square matrix mat is used to represent people at the party such that if an element 
     of row i and column j is set to 1 it means ith person knows jth person. You need to return the index 
@@ -35,7 +35,6 @@ int celebrity(vector<vector<int> >& mat) {
     for(int i=0; i<n; i++){
         stk.push(i);
     }
-    
     while(stk.size() > 1){
         int a = stk.top();
         stk.pop();
