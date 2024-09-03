@@ -1,4 +1,4 @@
-/*  Problem Statement - The celebrity problem 
+ /*  Problem Statement - The celebrity problem 
  
     A celebrity is a person who is known to all but does not know anyone at a party. A party is being
     organized by some people.  A square matrix mat is used to represent people at the party such that if an element 
