@@ -4,7 +4,7 @@
      organized by some people.  A square matrix mat is used to represent people at the party such that if an element 
      of row i and column j is set to 1 it means ith person knows jth person. You need to return the index 
      of the celebrity in the party, if the celebrity does not exist, return -1.
-
+ 
     Note: Follow 0-based indexing.
 
     Examples:
