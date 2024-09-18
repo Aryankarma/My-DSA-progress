@@ -1,33 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class Node
-{
+class Node{
 public:
     int data;   // integer data
     Node *next; // pointer variable "add" that stores the address of object
 
     // constructor
-    Node(int data)
-    {
+    Node(int data){
         this->data = data;
         this->next = NULL;
     }
 };
 
-void insertattail(Node *&tail, int data)
-{
+void insertattail(Node *&tail, int data){
     Node *temp = new Node(data);
     tail->next = temp;
     tail = temp;
 }
 
-void print(Node *&head)
-{
+void print(Node *&head){
     Node *current = head;
 
-    while (current != NULL)
-    {
+    while (current != NULL){
         cout << current->data << " ";
         current = current->next;
     }
@@ -35,8 +30,8 @@ void print(Node *&head)
 }
 
 // stack with array
-class Stack
-{
+class Stack{
+
 public:
     int *arr;
     int curr;
@@ -48,10 +43,8 @@ public:
         this->curr = -1;
     }
 
-    void push(int element)
-    {
-        if (curr >= size - 1)
-        {
+    void push(int element){
+        if (curr >= size - 1){
             cout << "stack overflow" << endl;
         }else{
             curr++;
@@ -59,39 +52,27 @@ public:
         }
     };
 
-    void pop()
-    {
-        if (curr == -1)
-        {
+    void pop(){
+        if (curr == -1){
             cout << "stack underflow" << endl;
-        }
-        else
-        {
+        }else{
             curr--;
         }
     }
 
-    int top()
-    {
-        if (curr == -1)
-        {
+    int top(){
+        if (curr == -1){
             cout << "stack is empty" << endl;
             return 0;
-        }
-        else
-        {
+        }else{
             return arr[curr];
         }
     }
 
-    bool empty()
-    {
-        if (curr == -1)
-        {
+    bool empty(){
+        if (curr == -1){
             return true;
-        }
-        else
-        {
+        }else{
             return false;
         }
     }
@@ -114,26 +95,20 @@ public:
         }
     }
 
-    bool empty()
-    {
-        if (vect.empty())
-        {
+    bool empty(){
+        if (vect.empty()){
             return true;
         }
-        else
-        {
+        else{
             return false;
         }
     }
 
-    int top()
-    {
-        if (vect.empty())
-        {
+    int top(){
+        if (vect.empty()){
             return -999;
         }
-        else
-        {
+        else{
             return vect.back();
         }
     }
@@ -185,21 +160,17 @@ public:
         }
     }
 
-    bool empty()
-    {
-        if (topNode == NULL && bottomNode == NULL)
-        {
+    bool empty(){
+        if (topNode == NULL && bottomNode == NULL){
             return true;
         }
-        else
-        {
+        else{
             return false;
         }
     }
 };
 
-void stackDeclaration()
-{
+void stackDeclaration(){
 
     // initializing a stack
     stack<int> s;
@@ -221,8 +192,7 @@ void stackDeclaration()
     cout << s.empty() << endl;
 };
 
-void stackImplementation()
-{
+void stackImplementation(){
 
     StackL myOwnStack;
 
@@ -245,9 +215,7 @@ void stackImplementation()
     cout << myOwnStack.empty() << endl;
 };
 
-int main()
-{
-
+int main(){
     // Stacks are a type of container adaptors with LIFO(Last In First Out) type of working, where a new element is added at one end(top) and an element is removed from that end only.Stack uses an encapsulated object of either vector or deque(by default) or list(sequential container class) as its underlying container, providing a specific set of member functions to access its elements.
 
     // using stack - operations - push, pop, empty, top
