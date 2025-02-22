@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     queue <int> q;
-
+ 
     q.push(10);
     cout << "pushed 10" << endl;
     cout << "front of q: " << q.front() << endl;

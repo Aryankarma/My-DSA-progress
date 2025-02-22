@@ -37,7 +37,7 @@ public:
         } else {
             int ans = arr[qfront];
             arr[qfront] = -1;
-            qfront++;
+            qfront++; 
             if(qfront == rear){
                 qfront = 0;
                 rear = 0;
